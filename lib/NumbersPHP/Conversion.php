@@ -35,38 +35,57 @@ final class Conversion
     private static $octalResult;
     private static $hexResult;
        
-    public static function convert($num, $frombase, $tobase=-1, $returntype=0){
-        if($tobase==-1){
+    public static function convert($num, $frombase, $tobase=-1, $returntype=0)
+    {
+        if($tobase==-1)
+        {
             self::$binaryResult = base_convert($num, $frombase, 2);
             self::$decimalResult = base_convert($num, $frombase, 10);
             self::$octalResult = base_convert($num, $frombase, 8);
             self::$hexResult = base_convert($num, $frombase, 16);
-            if($returntype==1){
+            if($returntype==1)
+            {
                 self::$binaryResult = str_split(self::$binaryResult);
                 self::$decimalResult = str_split(self::$decimalResult);
                 self::$octalResult = str_split(self::$octalResult);
                 self::$hexResult = str_split(self::$hexResult);
             }
-        }else{
-            if($returntype==0){
+        }
+        else
+        {
+            if($returntype==0)
+            {
                 return base_convert($num, $frombase, $tobase);
             }
-            else{
+            else
+            {
                 return str_split(base_convert($num, $frombase, $tobase));
             }
         }
         
     }
-    public static function getBinary(){
+    
+    /**
+     * Returns the converted value if $tobase is not passed
+     */
+    
+    public static function getBinary()
+    {
         return self::$binaryResult;
     }
-    public static function getDecimal(){
+    
+    public static function getDecimal()
+    {
         return self::$decimalResult;
     }
-    public static function getOctal(){
+    
+    public static function getOctal()
+    {
         return self::$octalResult;
     }
-    public static function getHex(){
+    
+    public static function getHex()
+    {
         return self::$hexResult;
     }
     
