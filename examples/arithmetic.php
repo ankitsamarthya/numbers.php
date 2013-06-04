@@ -20,3 +20,4 @@ $gcd = NumbersPHP\Basic::gcd(100, 10);
 echo 'GCD amongst 100 and 10 = ' . $gcd;
 
 echo '</pre>';
+
